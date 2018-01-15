@@ -12,7 +12,7 @@ def generateProcessedFiles(splittedName):
     # Get string from Image
     imgText = pt.image_to_string(Image.open(sys.argv[1]), lang='ron')
 
-    with open(splittedName[0] + "text.txt", 'w') as f:
+    with open('../TextIntermediar/' + splittedName[0] + ".txt", 'w') as f:
         f.write(imgText)
 
     # Get bounding boxes
