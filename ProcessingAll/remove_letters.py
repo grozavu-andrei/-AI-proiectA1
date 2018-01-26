@@ -38,10 +38,8 @@ def remove_letters(img, coordonatesFile):
 	lines = f.readlines()
 	#remove whitespace characters like `\n` at the end of each line
 	lines = [x.strip() for x in lines] 
-	print(len(lines))
 	for k in range(len(lines)-1):
 		coordonates = lines[k].split(' ')
-		print(k)
 		if len(coordonates) > 4: 
 			x = oldImage.size[1] - int(coordonates[4])
 			y = oldImage.size[1] - int(coordonates[2])
