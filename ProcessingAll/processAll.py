@@ -4,6 +4,7 @@ import os
 
 if __name__ == "__main__":
     pt.tesseract_cmd = '/usr/bin/tesseract'
+    os.chdir('../MaterialeRomana')
     for image in os.listdir('.'):
         splitName = image.split(".")
         if(len(splitName) > 1):
