@@ -4,7 +4,7 @@ def separare_chei(text_citit,folder_produs):
 
     target=os.path.basename(os.path.normpath(text_citit)).replace("text","")
 
-    file2= open(folder_produs+target+".txt","w",encoding='utf-8')
+    file2= open(folder_produs+target,"w",encoding='utf-8')
 
     text_1 = file1.read()
 
