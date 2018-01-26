@@ -14,9 +14,9 @@ def random_line(fisier, no=1):
 
 def generare(dir):
     filename = random.choice(os.listdir(dir))
-    while (filename[-4:] != ".txt"):
+    while (filename[-4:] != ".txt" and filename!="intrebari.txt"):
         filename = random.choice(os.listdir(dir))
-    sentence = random_line('intrebari.txt')
+    sentence = random_line(os.path.realpath('intrebari.txt'))
     os.chdir(dir)
     no = sentence[0].split()[0]
     sentence = sentence[0].split(' ', 1)[1]
@@ -39,4 +39,4 @@ def generare(dir):
     else:
         print("Nu exista o imagine corespunzatoare")
 
-generare("intrebari")
+# generare("intrebari")

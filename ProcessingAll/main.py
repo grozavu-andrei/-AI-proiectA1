@@ -3,7 +3,7 @@ import os,sys
 from wrapperMain import *
 from remove_letters import *
 import os
-
+from generare import generare
 rootdir = '../TextIntermediar/'
 targetdir="../Img+TextFinal/"
 
@@ -18,7 +18,11 @@ for image in os.listdir('.'):
             generateProcessedFiles(splitName)
             remove_letters(image, splitName[0] + 'output.box')
 
+os.chdir('../Img+TextFinal')
 for dirpath,_,filenames in os.walk(rootdir):
        for f in filenames:
            filepath=os.path.abspath(os.path.join(dirpath, f))
            separare_chei(filepath,targetdir)
+
+os.chdir('../ProcessingAll')
+generare(targetdir)

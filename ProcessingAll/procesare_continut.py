@@ -2,9 +2,9 @@ import os
 def separare_chei(text_citit,folder_produs):
     file1 = open(text_citit,"r",encoding='utf-8')
 
-    target=os.path.basename(os.path.normpath(text_citit)).replace("text","")
+    target=os.path.basename(os.path.normpath(text_citit)).replace("text.txt","")
 
-    file2= open(folder_produs+target,"w",encoding='utf-8')
+    file2= open(folder_produs+target+"output.txt","w",encoding='utf-8')
 
     text_1 = file1.read()
 
