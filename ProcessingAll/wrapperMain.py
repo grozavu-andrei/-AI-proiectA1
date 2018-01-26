@@ -10,13 +10,14 @@ pt.tesseract_cmd = '/usr/bin/tesseract'
 
 def generateProcessedFiles(splittedName):
     # Get string from Image
-    imgText = pt.image_to_string(Image.open(splittedName[0] + splittedName[1]), lang='ron')
+    fullName = splittedName[0] + '.' +  splittedName[1]
+    imgText = pt.image_to_string(Image.open(fullName), lang='ron')
 
-    with open(splittedName[0] + ".txt", 'w') as f:
+    with open('../TextIntermediar/' + splittedName[0] + "text.txt", 'w') as f:
         f.write(imgText)
 
     # Get bounding boxes
-    pt.run_tesseract(sys.argv[1], splittedName[0] + 'output', lang='ron', boxes=True, config="hocr")
+    pt.run_tesseract(fullName, splittedName[0] + 'output', lang='ron', boxes=True, config="hocr")
 
     #Remove non-alphanumeric characters
     with open(splittedName[0] + 'output.box', 'r+') as f:
@@ -36,13 +37,13 @@ def generateProcessedFiles(splittedName):
                 boxes.append(row)
 
     # Draw the bounding box
-    img = cv2.imread(sys.argv[1])
-    h, w, _ = img.shape
-    for b in boxes:
-        img = cv2.rectangle(img,(int(b[1]),h-int(b[2])),(int(b[3]),h-int(b[4])),(255,0,0),2)
+    # img = cv2.imread(fullName)
+    # h, w, _ = img.shape
+    # for b in boxes:
+    #     img = cv2.rectangle(img,(int(b[1]),h-int(b[2])),(int(b[3]),h-int(b[4])),(255,0,0),2)
 
-    img = Image.fromarray(img)
-    img.save(splittedName[0] + "-out." + splittedName[1])
+    # img = Image.fromarray(img)
+    # img.save(splittedName[0] + "-out." + splittedName[1])
 
 if __name__ == "__main__":
     splitName = sys.argv[1].split(".")
