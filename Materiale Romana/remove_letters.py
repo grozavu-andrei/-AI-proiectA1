@@ -49,7 +49,7 @@ def remove_letters(img, coordonatesFile):
 				for j in range(x-5,y+6):
 					newPixelMap[i,j] = (255,255,255,0)
 
-	newImage.save(img.split('.')[0] + "output.jpg")
+	newImage.save('../Img+TextFinal/' + img.split('.')[0] + "output.jpg")
 	newImage.close()
 	return newImage
 

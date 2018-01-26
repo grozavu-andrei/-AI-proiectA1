@@ -1,9 +1,11 @@
 from wrapperMain import *
 from remove_letters import *
+import os
 
 if __name__ == "__main__":
-    splitName = sys.argv[1].split(".")
-    print(splitName)
+    imgDir = '/home/apo/Facultate/Anul3/AI/-AI-proiectA1/Materiale Romana'
     pt.tesseract_cmd = '/usr/bin/tesseract'
-    generateProcessedFiles(splitName)
-    remove_letters(sys.argv[1], splitName[0] + 'output.box')
+    for image in os.listdir(imgDir):
+        splitName = image.split(".")
+        generateProcessedFiles(image, imgDir)
+        remove_letters(image, splitName[0] + 'output.box')
