@@ -3,9 +3,12 @@ from remove_letters import *
 import os
 
 if __name__ == "__main__":
-    imgDir = '/home/apo/Facultate/Anul3/AI/-AI-proiectA1/Materiale Romana'
     pt.tesseract_cmd = '/usr/bin/tesseract'
-    for image in os.listdir(imgDir):
+    os.chdir('../MaterialeRomana')
+    for image in os.listdir('.'):
         splitName = image.split(".")
-        generateProcessedFiles(image, imgDir)
-        remove_letters(image, splitName[0] + 'output.box')
+        if(len(splitName) > 1):
+            if(splitName[1] == 'png' or splitName[1] == 'jpg'):
+                print('Processing image ' + image)
+                generateProcessedFiles(splitName)
+                remove_letters(image, splitName[0] + 'output.box')
