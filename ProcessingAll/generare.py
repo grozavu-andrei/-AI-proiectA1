@@ -31,11 +31,13 @@ def generare(dir):
     if (os.path.isfile(jpg)):
         #image = Image.open(jpg)
         # image.show()
+        os.system("ristretto " + jpg)
         print(jpg)
     elif (os.path.isfile(png)):
         #image = Image.open(png)
         # image.show()
         print(png)
+        os.system("ristretto " + png)
     else:
         print("Nu exista o imagine corespunzatoare")
 
