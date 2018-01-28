@@ -7,8 +7,11 @@ def random_line(fisier, no=1):
     line = []
     while (no >= 1):
         one_line = random.choice(open(fisier).readlines())
-        line.append(one_line.rstrip())
-        no = no - 1
+        if one_line not in line:
+            a = list(map(lambda x : x.isalpha(), one_line))
+            if(sum(a) > 0.7*len(a)):
+                line.append(one_line.rstrip())
+                no = no - 1
     return line
 
 
@@ -31,8 +34,8 @@ def generare(dir):
     if (os.path.isfile(jpg)):
         #image = Image.open(jpg)
         # image.show()
-        os.system("ristretto " + jpg)
         print(jpg)
+        os.system("ristretto " + jpg)
     elif (os.path.isfile(png)):
         #image = Image.open(png)
         # image.show()

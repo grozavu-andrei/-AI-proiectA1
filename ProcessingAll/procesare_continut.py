@@ -16,7 +16,7 @@ def separare_chei(text_citit,folder_produs):
     for i in range(len(text_list)):
         if (ord(text_list[i])>=65 and ord(text_list[i])<=90) or text_list[i]=="Ş" or text_list[i]=="Ț" or text_list[i]=="Î":
             text_list[i]='\n'+text_list[i]
-        elif text_list[i] in "!@#$%^&*()_+-={};:\'.,?/[]„\"":
+        elif text_list[i] in r"\/»!@#$%^&*_+-={};:\'.,?/[]„\"":
             text_list[i]=""
 
     text_1 = "".join(text_list)
